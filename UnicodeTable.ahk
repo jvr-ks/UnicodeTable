@@ -82,7 +82,7 @@ currentTableStartPosition := currentTableStartPositionDefault
 ;------------------------------- gui variables -------------------------------
 minPosLeft := -16
 minPosTop := -16
-buttonSmallWidth := 50
+buttonWidth := 100
 
 dpiScaleValueDefault := 96
 dpiScaleValue := dpiScaleValueDefault
@@ -137,19 +137,29 @@ OnClipboardChangeFunction(type){
   
   OnClipboardChange(OnClipboardChangeFunction, 0)
   
+  isControlCharacter := 0
   if (type == 1){
     characters := A_Clipboard
     clipWait 5, 0
     characters := RegExReplace(characters, "[\t]+"," ")
     showParamBox()
-    guiParamBoxRow1.Value := characters
+    if (InStr(characters,"NUL") || InStr(characters,"HT") || InStr(characters,"CR") || InStr(characters,"LF")){
+      isControlCharacter := 1
     
-    utf32All := ""
-    stringUTF8 := asUTF8(characters, &utf32All)
-    guiParamBoxRow2.Value := utf32All
-    guiParamBoxRow3.Value := asUTF16(characters)
-    guiParamBoxRow4.Value := stringUTF8
-    guiParamBoxRow5.Value := asBinary(stringUTF8)
+      characters := StrReplace(characters, "NUL", "00000000")
+      characters := StrReplace(characters, "HT", "00000009")
+      characters := StrReplace(characters, "CR", "0000000D")
+      characters := StrReplace(characters, "LF", "0000000A")
+      guiParamBoxRow1.Value := characters " `n(Contains Control-characters`, not converted to UTF-16 or UTF-8!)"
+    } else {
+      guiParamBoxRow1.Value := characters
+      utf32All := ""
+      stringUTF8 := asUTF8(characters, &utf32All)
+      guiParamBoxRow2.Value := utf32All
+      guiParamBoxRow3.Value := asUTF16(characters)
+      guiParamBoxRow4.Value := stringUTF8
+      guiParamBoxRow5.Value := asBinary(stringUTF8)
+    }
   }
   
   OnClipboardChange(OnClipboardChangeFunction, 1)
@@ -302,8 +312,8 @@ mainGui(){
   guiParamBoxRow5 := guiParamBox.Add("Edit", "xs yp+0 r4 vParamBoxValue5 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
 
   guiParamBoxText6 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT6", "UTF-32: (U+)`n (invers) ") 
-  guiParamBoxRow6 := guiParamBox.Add("Edit", "xs yp+0 r1 vParamBoxValue6 w" guiParamBoxClientWidth - paramBoxEditPadding - buttonSmallWidth, "") 
-  guiParamBoxButton6 := guiParamBox.Add("Button", "x+m yp+0", "Ok") 
+  guiParamBoxRow6 := guiParamBox.Add("Edit", "xs yp+0 r1 vParamBoxValue6 w" guiParamBoxClientWidth - paramBoxEditPadding - buttonWidth, "") 
+  guiParamBoxButton6 := guiParamBox.Add("Button", "x+m yp+0", "Invers Ok") 
   
   guiParamBoxButton6.OnEvent("Click", inversInput)
 
@@ -311,7 +321,6 @@ mainGui(){
   WinGetPos ,,, &guiParamBoxClientHeight, guiParamBox
   
   guiParamBox.OnEvent("Size", guiParamBox_Size, 1)
-  
 }
 ;-------------------------------- inversInput --------------------------------
 inversInput(*){
@@ -389,7 +398,7 @@ guiParamBox_Size(theGui, theMinMax, clientWidth, clientHeight, *) {
   ;guiParamBoxRow3.Move(,, clientWidth - paramBoxEditPadding)
   ;guiParamBoxRow4.Move(,, clientWidth - paramBoxEditPadding)
   ;guiParamBoxRow5.Move(,, clientWidth - paramBoxEditPadding)
-  ;guiParamBoxRow6.Move(,, clientWidth - paramBoxEditPadding - buttonSmallWidth)
+  ;guiParamBoxRow6.Move(,, clientWidth - paramBoxEditPadding - buttonWidth)
   
   AutoXYWH2("w", guiParamBoxRow1)
   AutoXYWH2("w", guiParamBoxRow2)

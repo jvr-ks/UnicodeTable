@@ -21,7 +21,7 @@ asUTF8(s, &resultHex){
       if (A_Index < Bytes)
         UTFCode8 := Format("{:X}", (hex&0x3F) + 0x80) . UTFCode8    ; 3F=00111111, 80=10000000
       else
-        UTFCode8 := Format("{:X}", hex + Prefix[Bytes]) . UTFCode8  ; C0=11000000, E0=11100000, F0=11110000
+        UTFCode8 := Format("{:02.2X}", hex + Prefix[Bytes]) . UTFCode8  ; C0=11000000, E0=11100000, F0=11110000
       hex := hex>>6
     }
     result .= UTFCode8 . " "

@@ -53,7 +53,7 @@ showUTF32Table(tableStart, *){
       if (v = 0x000000)
         uniString := "NUL"
       if (v = 0x000009)
-        uniString := "TAB"
+        uniString := "HT"
       if (v = 0x00000A)
         uniString := "LF"
       if (v = 0x00000D)
