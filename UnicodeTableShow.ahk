@@ -101,7 +101,7 @@ ctrlChr := "
 
 Unicode			Abbreviation			Description
 
-U+000000			NUL								Null character
+U+000000			NUL					Null character
 U+000001			SOH / Ctrl-A			Start of Heading
 U+000002			STX / Ctrl-B			Start of Text
 U+000003			ETX / Ctrl-C1			End-of-text character
