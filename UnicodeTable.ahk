@@ -141,25 +141,16 @@ OnClipboardChangeFunction(type){
   if (type == 1){
     characters := A_Clipboard
     clipWait 5, 0
-    characters := RegExReplace(characters, "[\t]+"," ")
+    ;characters := RegExReplace(characters, "[\t]+"," ")
     showParamBox()
-    if (InStr(characters,"NUL") || InStr(characters,"HT") || InStr(characters,"CR") || InStr(characters,"LF")){
-      isControlCharacter := 1
     
-      characters := StrReplace(characters, "NUL", "00000000")
-      characters := StrReplace(characters, "HT", "00000009")
-      characters := StrReplace(characters, "CR", "0000000D")
-      characters := StrReplace(characters, "LF", "0000000A")
-      guiParamBoxRow1.Value := characters " `n(Contains Control-characters`, not converted to UTF-16 or UTF-8!)"
-    } else {
-      guiParamBoxRow1.Value := characters
-      utf32All := ""
-      stringUTF8 := asUTF8(characters, &utf32All)
-      guiParamBoxRow2.Value := utf32All
-      guiParamBoxRow3.Value := asUTF16(characters)
-      guiParamBoxRow4.Value := stringUTF8
-      guiParamBoxRow5.Value := asBinary(stringUTF8)
-    }
+    guiParamBoxRow1.Value := StrReplace(characters, "`t", " ")
+    utf32All := ""
+    stringUTF8 := asUTF8(characters, &utf32All)
+    guiParamBoxRow2.Value := utf32All
+    guiParamBoxRow3.Value := asUTF16(characters)
+    guiParamBoxRow4.Value := stringUTF8
+    guiParamBoxRow5.Value := asBinary(stringUTF8)
   }
   
   OnClipboardChange(OnClipboardChangeFunction, 1)
@@ -335,7 +326,7 @@ inversInput(*){
 
   if (v != ""){
     if (InStr(v, " ")){
-      Loop parse v, " ","`r" {
+      Loop parse v, " `t","`r" {
         r .= Chr("0x" A_LoopField) " "
       }
       A_Clipboard := r

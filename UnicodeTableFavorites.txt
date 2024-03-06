@@ -8,6 +8,8 @@ Miscellaneous Mathematical Symbols-B	0x2980 - 0x29FF
 Mathematical Alphanumeric Symbols	0x1D400 - 0x1D7FF
 Arabic Mathematical Alphabetic Symbols	0x1EE00 - 0x1EEFF
 Currency Symbols	0x20A0 - 0x20CF
+Last page	0x10FF00
+
 
 ;Basic Latin	0x0000 - 0x007F
 ;Latin-1 Supplement	0x0080 - 0x00FF

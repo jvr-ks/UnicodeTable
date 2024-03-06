@@ -47,24 +47,17 @@ showUTF32Table(tableStart, *){
         if (v < 0x10FFFE){
           uniString := Chr(v)
         } else {
-          uniString := ""
+          uniString := "OVF"
+          if (v == 0x10FFFE)
+            uniString := "END"
         }
       }
-      if (v = 0x000000)
-        uniString := "NUL"
-      if (v = 0x000009)
-        uniString := "HT"
-      if (v = 0x00000A)
-        uniString := "LF"
-      if (v = 0x00000D)
-        uniString := "CR"
+      if (v < 0xFF) uniString := encodeSingleCtrlChar(uniString, v)
       
       allUniStrings .= uniString "`t"
     }
     allUniStrings .= "`n"
   }
-  
-  
   
   if (tableStart != 0)
     mainText.Text := allUniStrings
@@ -101,7 +94,7 @@ ctrlChr := "
 
 Unicode			Abbreviation			Description
 
-U+000000			NUL					Null character
+U+000000			NUL					Null character (Editor Control-character)
 U+000001			SOH / Ctrl-A			Start of Heading
 U+000002			STX / Ctrl-B			Start of Text
 U+000003			ETX / Ctrl-C1			End-of-text character
@@ -109,12 +102,12 @@ U+000004			EOT / Ctrl-D2			End-of-transmission character
 U+000005			ENQ / Ctrl-E			Enquiry character
 U+000006			ACK / Ctrl-F			Acknowledge character
 U+000007			BEL / Ctrl-G3			Bell character
-U+000008			BS / Ctrl-H			Backspace
-U+000009			HT / Ctrl-I			Horizontal tab
-U+00000A			LF / Ctrl-J4			Line feed
+U+000008			BS / Ctrl-H			Backspace (Editor Control-character)
+U+000009			HT / Ctrl-I			Horizontal tab (Editor Control-character)
+U+00000A			LF / Ctrl-J4			Line feed (Editor Control-character)
 U+00000B			VT / Ctrl-K			Vertical tab
 U+00000C			FF / Ctrl-L			Form feed
-U+00000D			CR / Ctrl-M5			Carriage return
+U+00000D			CR / Ctrl-M5			Carriage return (Editor Control-character)
 U+00000E			SO / Ctrl-N			Shift Out
 U+00000F			SI / Ctrl-O6			Shift In
 U+000010			DLE / Ctrl-P			Data Link Escape
@@ -166,6 +159,9 @@ U+00009C			ST					String Terminator
 U+00009D			OSC					Operating System Command
 U+00009E			PM					Private Message
 U+00009F			APC					Application Program Command
+U+10FFFE			END					Last Character
+> U+10FFFE			OVF					Overflow (undefined)
+
 )"
 
   return ctrlChr

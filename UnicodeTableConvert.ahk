@@ -11,11 +11,17 @@ asUTF8(s, &resultHex){
   
   Loop Parse, s, " `t", "`r" {
     UTFCode8 := ""
-    hex := format("{1:#6.6X}", Ord(A_LoopField))
-    resultHex .= format("{1:6.6X}", Ord(A_LoopField)) . " "
+    if (InStr(A_LoopField, "NUL") || InStr(A_LoopField, "HT") || InStr(A_LoopField, "CR") ||
+    InStr(A_LoopField, "LF") || InStr(A_LoopField, "OVF") || InStr(A_LoopField, "END")){
+      hex := format("{1:#6.6X}", decodeSingleCtrlChar(A_LoopField))
+      resultHex .= format("{1:6.6X}", decodeSingleCtrlChar(A_LoopField)) " "
+    } else {
+      hex := format("{1:#6.6X}", Ord(A_LoopField))
+      resultHex .= format("{1:6.6X}", Ord(A_LoopField)) " "
+    }
     Bytes :=  hex>=0x10000 ? 4 : hex>=0x0800 ? 3 : hex>=0x0080 ? 2 : hex>=0x0001 ? 1 : 0
     Prefix := [0, 0xC0, 0xE0, 0xF0]
-
+    
     Loop Bytes
     {
       if (A_Index < Bytes)
@@ -31,16 +37,20 @@ asUTF8(s, &resultHex){
 }
 ;---------------------------------- asUTF16 ----------------------------------
 asUTF16(s){
-  local UTFCode16, result
+  local result
   
-  UTFCode16 := ""
   result := ""
 
   Loop Parse, s, " `t", "`r" {
-    UTFCode16 := ""
-    hex := format("{1:#6.6X}", Ord(A_LoopField))
+    if (InStr(A_LoopField, "NUL") || InStr(A_LoopField, "HT") || InStr(A_LoopField, "CR") ||
+    InStr(A_LoopField, "LF") || InStr(A_LoopField, "OVF") || InStr(A_LoopField, "END")){
+      hex := format("{1:#6.6X}", decodeSingleCtrlChar(A_LoopField))
+    } else {
+      hex := format("{1:#6.6X}", Ord(A_LoopField))
+    }
+    
     if (hex > 0x0 && hex < 0xD7FF || hex > 0xE000 && hex < 0xFFFF){
-      result .= SubStr(hex, 5, 2) . SubStr(hex,7, 2)
+      result .= SubStr(hex, 5, 2) . SubStr(hex,7, 2) . " "
     } else {
       s1 := hex - 0x10000 ; minus BMP size, result is between 0x00000 and 0xFFFFF, size is 20-Bit
       
@@ -57,7 +67,7 @@ asUTF16(s){
       ; 1101110000000000 = 0xDC00
       lS := lS + 0xDC00
       
-      result .= toHex4(hS) . toHex4(lS)
+      result .= toHex4(hS) . toHex4(lS) . " "
     }
   }
 
@@ -84,7 +94,7 @@ asBinary(s){
   
   ret := ""
   binary := ""
-  Loop Parse, s, " ", "`r" {
+  Loop Parse, s, " `t", "`r" {
     Loop parse, A_LoopField {
       binary .= b%A_Loopfield% . " "
     }
@@ -106,7 +116,41 @@ toHex4(s){
 toHex2(s){
   return format("{:02.2X}",s)
 }
+;--------------------------- encodeSingleCtrlChar ---------------------------
+encodeSingleCtrlChar(s, v){
+  ; 
+  ret := s
+  
+  if (v == 0x00)
+    ret := "NUL"
+  if (v == 0x09)
+    ret := "HT"
+  if (v == 0x0A)
+    ret := "LF"
+  if (v == 0x0D)
+    ret := "CR"
+    
+  return ret
+}
+;--------------------------- decodeSingleCtrlChar ---------------------------
+decodeSingleCtrlChar(s){
+  ret := s
 
+  if (s = "NUL")
+    ret := "0x000000"
+  if (s = "HT")
+    ret := "0x000009"
+  if (s = "CR")
+    ret := "0x00000D"
+  if (s = "LF")
+    ret := "0x00000A"
+  if (s = "END")
+    ret := "0x10FFFE"
+  if (s = "OVF")
+    ret := "0x10FFFF" 
+
+  return ret
+}
 
 ;----------------------------------------------------------------------------
 
