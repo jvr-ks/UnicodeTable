@@ -374,6 +374,34 @@ exit(*){
   
   ExitApp
 }
+;-------------------------- isControlCharacter --------------------------
+isControlCharacter(s){
+  ret := 0
+
+    if (InStr(s, "NUL") || InStr(s, "HT") || InStr(s, "CR") ||
+    InStr(s, "LF") || InStr(s, "OVF") || InStr(s, "END")){
+      ret := 1
+    }
+    
+  return ret
+}
+;--------------------------- isAnyControlCharacter ---------------------------
+isAnyControlCharacter(s){
+  local ret, shortened 
+  
+  ret := 0
+  shortened := StrReplace(s, "0", "")
+    
+  if (InStr(s, "NUL") || InStr(s, "HT") || InStr(s, "CR") ||
+    InStr(s, "LF") || InStr(s, "OVF") || InStr(s, "END") ||
+    shortened = "" || SubStr(shortened,-1,1) = "9" || 
+    SubStr(shortened,-1,1) = "8" || SubStr(shortened,-1,1) = "9" || 
+    SubStr(shortened,-1,1) = "a" || SubStr(shortened,-1,1) = "d"  ){
+      ret := 1
+    }
+    
+  return ret
+}
 ;----------------------------------- todo -----------------------------------
 todo(p1, p2 ,*){
 

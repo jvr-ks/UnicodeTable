@@ -137,7 +137,6 @@ OnClipboardChangeFunction(type){
   
   OnClipboardChange(OnClipboardChangeFunction, 0)
   
-  isControlCharacter := 0
   if (type == 1){
     characters := A_Clipboard
     clipWait 5, 0
@@ -316,28 +315,46 @@ mainGui(){
 ;-------------------------------- inversInput --------------------------------
 inversInput(*){
   global
-  local v, r
+  local v, f, r
   
   v := guiParamBoxRow6.Value
   r := ""
    
-  v := RegExReplace(v, "[^0-9a-fA-F ]","")
+  ;v := RegExReplace(v, "[^0-9a-fA-F ]","")
   v := Trim(v)
+  
+  if (v == "")
+    return
 
-  if (v != ""){
-    if (InStr(v, " ")){
-      Loop parse v, " `t","`r" {
-        r .= Chr("0x" A_LoopField) " "
+  if (InStr(v, " ")){
+    Loop parse v, " ","`r" {
+      f := A_LoopField
+      if (isAnyControlCharacter(f)){
+        msgbox("Input is a Control-character!")
+      } else {
+        f := "0x" f
+        if (isNumber(f)){
+          r .= Chr(f) " "
+        } else {
+          msgbox("Input is not a number!")
+        }
       }
-      A_Clipboard := r
-      r := ""
-    } else {
-      r := Chr("0x" v)
-      A_Clipboard := r
-      r := ""
     }
+    A_Clipboard := r
+    r := ""
   } else {
-    msgbox "Input values are not UTF-32 characters,`nSeparate them with a blank!"
+    if (isAnyControlCharacter(v)){
+      msgbox("Input is a Control-character!")
+    } else {
+      f := "0x" v
+      if (isNumber(f)){
+        r := Chr(f)
+        A_Clipboard := r
+        r := ""
+      } else {
+        msgbox("Input is not a number!")
+      }
+    }
   }
 }
 ;------------------------------- showParamBox -------------------------------

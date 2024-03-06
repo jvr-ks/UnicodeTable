@@ -11,10 +11,9 @@ asUTF8(s, &resultHex){
   
   Loop Parse, s, " `t", "`r" {
     UTFCode8 := ""
-    if (InStr(A_LoopField, "NUL") || InStr(A_LoopField, "HT") || InStr(A_LoopField, "CR") ||
-    InStr(A_LoopField, "LF") || InStr(A_LoopField, "OVF") || InStr(A_LoopField, "END")){
-      hex := format("{1:#6.6X}", decodeSingleCtrlChar(A_LoopField))
-      resultHex .= format("{1:6.6X}", decodeSingleCtrlChar(A_LoopField)) " "
+    if (isControlCharacter(A_LoopField)){
+      hex := format("{1:#6.6X}", decodeCtrlCharAsHex(A_LoopField))
+      resultHex .= format("{1:6.6X}", decodeCtrlCharAsHex(A_LoopField)) " "
     } else {
       hex := format("{1:#6.6X}", Ord(A_LoopField))
       resultHex .= format("{1:6.6X}", Ord(A_LoopField)) " "
@@ -33,18 +32,17 @@ asUTF8(s, &resultHex){
     result .= UTFCode8 . " "
   }
   
-  return result
+  return Trim(result)
 }
 ;---------------------------------- asUTF16 ----------------------------------
 asUTF16(s){
-  local result
+  local result, hex, hS, lS, s1
   
   result := ""
 
   Loop Parse, s, " `t", "`r" {
-    if (InStr(A_LoopField, "NUL") || InStr(A_LoopField, "HT") || InStr(A_LoopField, "CR") ||
-    InStr(A_LoopField, "LF") || InStr(A_LoopField, "OVF") || InStr(A_LoopField, "END")){
-      hex := format("{1:#6.6X}", decodeSingleCtrlChar(A_LoopField))
+    if (isControlCharacter(A_LoopField)){
+      hex := format("{1:#6.6X}", decodeCtrlCharAsHex(A_LoopField))
     } else {
       hex := format("{1:#6.6X}", Ord(A_LoopField))
     }
@@ -52,6 +50,8 @@ asUTF16(s){
     if (hex > 0x0 && hex < 0xD7FF || hex > 0xE000 && hex < 0xFFFF){
       result .= SubStr(hex, 5, 2) . SubStr(hex,7, 2) . " "
     } else {
+      hS := ""
+      lS:= ""
       s1 := hex - 0x10000 ; minus BMP size, result is between 0x00000 and 0xFFFFF, size is 20-Bit
       
       ; High-Surrogate:
@@ -71,7 +71,7 @@ asUTF16(s){
     }
   }
 
-  return result
+  return Trim(result)
 }
 ;--------------------------------- asBinary ---------------------------------
 asBinary(s){
@@ -106,15 +106,15 @@ asBinary(s){
 }
 ;---------------------------------- toHex6 ----------------------------------
 toHex6(s){
-  return format("{:06.6X}",s)
+  return format("{:06.6X}", s)
 }
 ;---------------------------------- toHex4 ----------------------------------
 toHex4(s){
-  return format("{:04.4X}",s)
+  return format("{:04.4X}", s)
 }
 ;---------------------------------- toHex2 ----------------------------------
 toHex2(s){
-  return format("{:02.2X}",s)
+  return format("{:02.2X}", s)
 }
 ;--------------------------- encodeSingleCtrlChar ---------------------------
 encodeSingleCtrlChar(s, v){
@@ -133,25 +133,28 @@ encodeSingleCtrlChar(s, v){
   return ret
 }
 ;--------------------------- decodeSingleCtrlChar ---------------------------
-decodeSingleCtrlChar(s){
+decodeCtrlCharAsString(s){
   ret := s
 
   if (s = "NUL")
-    ret := "0x000000"
+    ret := "000000"
   if (s = "HT")
-    ret := "0x000009"
+    ret := "000009"
   if (s = "CR")
-    ret := "0x00000D"
+    ret := "00000D"
   if (s = "LF")
-    ret := "0x00000A"
+    ret := "00000A"
   if (s = "END")
-    ret := "0x10FFFE"
+    ret := "10FFFE"
   if (s = "OVF")
-    ret := "0x10FFFF" 
+    ret := "00FFFF" 
 
   return ret
 }
-
+;---------------------------- decodeCtrlCharAsHex ----------------------------
+decodeCtrlCharAsHex(s){
+  return "0x" decodeCtrlCharAsString(s)
+}
 ;----------------------------------------------------------------------------
 
 
