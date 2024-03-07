@@ -82,7 +82,7 @@ currentTableStartPosition := currentTableStartPositionDefault
 ;------------------------------- gui variables -------------------------------
 minPosLeft := -16
 minPosTop := -16
-buttonWidth := 100
+buttonWidth := 128
 
 dpiScaleValueDefault := 96
 dpiScaleValue := dpiScaleValueDefault
@@ -287,23 +287,23 @@ mainGui(){
   }
   msg1 := "First copy a character from the Unicode-table! (Using the context-menu or [Ctrl] + [c])" 
   guiParamBoxText1 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT1", "Character(s): ") 
-  guiParamBoxRow1 := guiParamBox.Add("Edit", "x+m section y" padding " r4 vParamBoxValue1 w" guiParamBoxClientWidth - paramBoxEditPadding , msg1)
+  guiParamBoxRow1 := guiParamBox.Add("Edit", "readonly x+m section y" padding " r4 vParamBoxValue1 w" guiParamBoxClientWidth - paramBoxEditPadding , msg1)
 
   guiParamBoxText2 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT2", "UTF-32 (U+): ") 
-  guiParamBoxRow2 := guiParamBox.Add("Edit", "xs yp+0 r4 vParamBoxValue2 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
+  guiParamBoxRow2 := guiParamBox.Add("Edit", "readonly xs yp+0 r4 vParamBoxValue2 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
 
   guiParamBoxText3 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT3", "UTF-16 (U+): ") 
-  guiParamBoxRow3 := guiParamBox.Add("Edit", "xs yp+0 r4 vParamBoxValue3 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
+  guiParamBoxRow3 := guiParamBox.Add("Edit", "readonly xs yp+0 r4 vParamBoxValue3 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
 
   guiParamBoxText4 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT4", "UTF-8: (U+) ") 
-  guiParamBoxRow4 := guiParamBox.Add("Edit", "xs yp+0 r4 vParamBoxValue4 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
+  guiParamBoxRow4 := guiParamBox.Add("Edit", "readonly xs yp+0 r4 vParamBoxValue4 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
 
   guiParamBoxText5 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT5", "UTF-8: (binary) ") 
-  guiParamBoxRow5 := guiParamBox.Add("Edit", "xs yp+0 r4 vParamBoxValue5 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
+  guiParamBoxRow5 := guiParamBox.Add("Edit", "readonly xs yp+0 r4 vParamBoxValue5 w" guiParamBoxClientWidth - paramBoxEditPadding, "") 
 
-  guiParamBoxText6 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT6", "UTF-32: (U+)`n (invers) ") 
+  guiParamBoxText6 := guiParamBox.Add("Text", "x" padding " r1 vParamBoxValueT6", "Num. (U+) to`nUTF-32 Char.") 
   guiParamBoxRow6 := guiParamBox.Add("Edit", "xs yp+0 r1 vParamBoxValue6 w" guiParamBoxClientWidth - paramBoxEditPadding - buttonWidth, "") 
-  guiParamBoxButton6 := guiParamBox.Add("Button", "x+m yp+0", "Invers Ok") 
+  guiParamBoxButton6 := guiParamBox.Add("Button", "x+m yp+0", "Show character") 
   
   guiParamBoxButton6.OnEvent("Click", inversInput)
 
@@ -400,13 +400,6 @@ guiParamBox_Size(theGui, theMinMax, clientWidth, clientHeight, *) {
   
   IniWrite clientWidth, configFile, "gui", "guiParamBoxClientWidth"
   ; IniWrite clientHeight, configFile, "gui", "guiParamBoxClientHeight"
-  
-  ;guiParamBoxRow1.Move(,, clientWidth - paramBoxEditPadding) 
-  ;guiParamBoxRow2.Move(,, clientWidth - paramBoxEditPadding)
-  ;guiParamBoxRow3.Move(,, clientWidth - paramBoxEditPadding)
-  ;guiParamBoxRow4.Move(,, clientWidth - paramBoxEditPadding)
-  ;guiParamBoxRow5.Move(,, clientWidth - paramBoxEditPadding)
-  ;guiParamBoxRow6.Move(,, clientWidth - paramBoxEditPadding - buttonWidth)
   
   AutoXYWH2("w", guiParamBoxRow1)
   AutoXYWH2("w", guiParamBoxRow2)
