@@ -3,7 +3,9 @@
 ### Status: Alpha
   
 UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
+  
 Usable, but still under construction!  
+  
 <a href="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png"><img src="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png" align="left"></a>
 <br clear="all" />
 
