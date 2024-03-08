@@ -2,8 +2,11 @@
   
 ### Status: Alpha
   
-  
-UnicodeTable is usable, but still under construction!  
+UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
+Usable, but still under construction!  
+<a href="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png"><img src="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png" align="left"></a>
+<br clear="all" />
+
   
 * Use \[Ctrl] + \[Mouse-wheel] to zoom in/out,  
 * Use \[Alt] + \[Mouse-wheel] to select next/previous table-section (or use the ▼/▲-buttons),  
@@ -22,7 +25,7 @@ To use a row as a favorite, edit the file "UnicodeTableFavorites.txt":
 (Menu ↣ [Favorites] ↣ [Edit Favorites File])  
 Copy the row to the top and remove the leading semicolon.  
   
-Favorites are accesible via Menu-buttons (Menu: Blocks ↣ Favorites).  
+Favorites are accessible via Menu-buttons (Menu: Blocks ↣ Favorites).  
   
 #### Known issues / bugs  
   

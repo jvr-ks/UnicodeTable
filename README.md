@@ -2,8 +2,11 @@
   
 ### Status: Alpha
   
-  
-UnicodeTable is usable, but still under construction!  
+UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
+Usable, but still under construction!  
+<a href="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png"><img src="https://github.com/jvr-ks/UnicodeTable/blob/main/assets/images/unicodeTable.png" align="left"></a>
+<br clear="all" />
+
   
 * Use \[Ctrl] + \[Mouse-wheel] to zoom in/out,  
 * Use \[Alt] + \[Mouse-wheel] to select next/previous table-section (or use the ▼/▲-buttons),  
@@ -22,7 +25,7 @@ To use a row as a favorite, edit the file "UnicodeTableFavorites.txt":
 (Menu ↣ [Favorites] ↣ [Edit Favorites File])  
 Copy the row to the top and remove the leading semicolon.  
   
-Favorites are accesible via Menu-buttons (Menu: Blocks ↣ Favorites).  
+Favorites are accessible via Menu-buttons (Menu: Blocks ↣ Favorites).  
   
 #### Known issues / bugs  
   
@@ -53,4 +56,4 @@ Copyright (c) 2024 J. v. Roos
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709919403)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709921518)
