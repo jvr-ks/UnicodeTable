@@ -9,6 +9,7 @@ generateSettingsMenu(){
   SettingsMenu := Menu()
   SettingsMenu.Add("Show index", toggleIndexVisibility)
   SettingsMenu.Add("Enable voice", toggleVoiceEnabled)
+  SettingsMenu.Add("Auto Open ParamBox", toggleAutoOpenParamBox)
   SettingsMenu.Add("Edit Favorites File", editFavFile)
 }
 ;--------------------------- toggleIndexVisibility ---------------------------
@@ -27,6 +28,14 @@ toggleVoiceEnabled(*){
   voiceEnabled := !voiceEnabled
   SettingsMenu.ToggleCheck("Enable voice")
   IniWrite voiceEnabled, configFile, "config", "voiceEnabled"
+}
+;-------------------------- toggleAutoOpenParamBox --------------------------
+toggleAutoOpenParamBox(*){
+  global
+
+  autoOpenParamBox := !autoOpenParamBox
+  SettingsMenu.ToggleCheck("Auto Open ParamBox")
+  IniWrite autoOpenParamBox, configFile, "config", "autoOpenParamBox"
 }
 ;---------------------------- generateBlocksMenu ----------------------------
 generateBlocksMenu(){

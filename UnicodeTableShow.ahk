@@ -59,10 +59,14 @@ showUTF32Table(tableStart, *){
     allUniStrings .= "`n"
   }
   
+  mainText.ReadOnly := false
+  
   if (tableStart != 0)
     mainText.Text := allUniStrings
   else
     mainText.Text := allUniStrings controlCharacters()
+    
+  mainText.ReadOnly := true
   
   return
 }
@@ -95,32 +99,32 @@ ctrlChr := "
 Unicode			Abbreviation			Description
 
 U+000000			NUL					Null character (Editor Control-character)
-U+000001			SOH / Ctrl-A			Start of Heading
-U+000002			STX / Ctrl-B			Start of Text
-U+000003			ETX / Ctrl-C1			End-of-text character
-U+000004			EOT / Ctrl-D2			End-of-transmission character
-U+000005			ENQ / Ctrl-E			Enquiry character
-U+000006			ACK / Ctrl-F			Acknowledge character
-U+000007			BEL / Ctrl-G3			Bell character
-U+000008			BS / Ctrl-H			Backspace (Editor Control-character)
-U+000009			HT / Ctrl-I			Horizontal tab (Editor Control-character)
-U+00000A			LF / Ctrl-J4			Line feed (Editor Control-character)
-U+00000B			VT / Ctrl-K			Vertical tab
-U+00000C			FF / Ctrl-L			Form feed
-U+00000D			CR / Ctrl-M5			Carriage return (Editor Control-character)
-U+00000E			SO / Ctrl-N			Shift Out
-U+00000F			SI / Ctrl-O6			Shift In
-U+000010			DLE / Ctrl-P			Data Link Escape
-U+000011			DC1 / Ctrl-Q7			Device Control 1
-U+000012			DC2 / Ctrl-R			Device Control 2
-U+000013			DC3 / Ctrl-S8			Device Control 3
-U+000014			DC4 / Ctrl-T			Device Control 4
-U+000015			NAK / Ctrl-U9			Negative-acknowledge character
-U+000016			SYN / Ctrl-V			Synchronous Idle
-U+000017			ETB / Ctrl-W			End of Transmission Block
-U+000018			CAN / Ctrl-X10			Cancel character
-U+000019			EM / Ctrl-Y			End of Medium
-U+00001A			SUB / Ctrl-Z11			Substitute character
+U+000001			SOH				Start of Heading
+U+000002			STX				Start of Text
+U+000003			ETX				End-of-text character
+U+000004			EOT				End-of-transmission character
+U+000005			ENQ				Enquiry character
+U+000006			ACK				Acknowledge character
+U+000007			BEL				Bell character
+U+000008			BS				Backspace (Editor Control-character)
+U+000009			HT				Horizontal tab (Editor Control-character)
+U+00000A			LF				Line feed (Editor Control-character)
+U+00000B			VT				Vertical tab
+U+00000C			FF				Form feed
+U+00000D			CR				Carriage return (Editor Control-character)
+U+00000E			SO				Shift Out
+U+00000F			SI				Shift In
+U+000010			DLE				Data Link Escape
+U+000011			DC1				Device Control 1
+U+000012			DC2				Device Control 2
+U+000013			DC3				Device Control 3
+U+000014			DC4				Device Control 4
+U+000015			NAK				Negative-acknowledge character
+U+000016			SYN				Synchronous Idle
+U+000017			ETB				End of Transmission Block
+U+000018			CAN	0			Cancel character
+U+000019			EM				End of Medium
+U+00001A			SUB	1			Substitute character
 U+00001B			ESC					Escape character
 U+00001C			FS					File Separator
 U+00001D			GS					Group Separator

@@ -59,12 +59,14 @@ baseDirectory := A_ScriptDir
 appName := "UnicodeTable"
 appnameLower := "UnicodeTable"
 extension := ".exe"
-appVersion := "0.007"
+appVersion := "0.008"
 
 appTitle := appName " " "v" appVersion
 
 voiceEnabled := 0
 voiceIsSpeed := 1 ; -10 .. +10
+autoOpenParamBox := 1
+inversInputRunning := 0
 
 fontName := "Segoe UI"
 fontSize := 11
@@ -137,21 +139,26 @@ OnClipboardChangeFunction(type){
   
   OnClipboardChange(OnClipboardChangeFunction, 0)
   
-  if (type == 1){
-    characters := A_Clipboard
-    clipWait 5, 0
-    ;characters := RegExReplace(characters, "[\t]+"," ")
-    showParamBox()
-    
-    guiParamBoxRow1.Value := StrReplace(characters, "`t", " ")
-    utf32All := ""
-    stringUTF8 := asUTF8(characters, &utf32All)
-    guiParamBoxRow2.Value := utf32All
-    guiParamBoxRow3.Value := asUTF16(characters)
-    guiParamBoxRow4.Value := stringUTF8
-    guiParamBoxRow5.Value := asBinary(stringUTF8)
-  }
+  MouseGetPos ,,, &OutputVarControl
   
+  if (InStr(OutputVarControl,"Scintilla1")|| inversInputRunning){
+    if (type == 1){
+      characters := A_Clipboard
+      clipWait 5, 0
+      
+      if (autoOpenParamBox)
+        showParamBox()
+      
+      guiParamBoxRow1.Value := StrReplace(characters, "`t", " ")
+      utf32All := ""
+      stringUTF8 := asUTF8(characters, &utf32All)
+      guiParamBoxRow2.Value := utf32All
+      guiParamBoxRow3.Value := asUTF16(characters)
+      guiParamBoxRow4.Value := stringUTF8
+      guiParamBoxRow5.Value := asBinary(stringUTF8)
+    }
+    inversInputRunning := 0
+  }
   OnClipboardChange(OnClipboardChangeFunction, 1)
 }
 
@@ -209,6 +216,9 @@ mainGui(){
     
   if (voiceEnabled)
     SettingsMenu.Check("Enable voice")
+    
+  if (autoOpenParamBox)
+    SettingsMenu.Check("Auto Open ParamBox")
 
   guiMainMenu := MenuBar()
   guiMainMenu.Add("" " Startvalue", selectStartValue)
@@ -271,7 +281,7 @@ mainGui(){
   guiParamBox := Gui("+OwnDialogs MaximizeBox +Resize", appTitle "- ParamBox")
   
   guiParamBoxMenu := MenuBar()
-  guiParamBoxMenu.Add("⌫" " Close ParamBox", showMain)
+  guiParamBoxMenu.Add("♒" " Close ParamBox", showMain)
   
   guiParamBoxMenu.Add("🗙" " Exit", guiMain_Close)
   guiParamBox.MenuBar := guiParamBoxMenu
@@ -317,6 +327,7 @@ inversInput(*){
   global
   local v, f, r
   
+  inversInputRunning := 1
   v := guiParamBoxRow6.Value
   r := ""
    

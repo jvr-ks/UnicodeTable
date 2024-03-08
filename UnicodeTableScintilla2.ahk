@@ -1,6 +1,8 @@
 ﻿; UnicodeTableScintilla2.ahk
 ; Part of unicodeTable.ahk
 
+; from: https://github.com/Ixiko/AHK-libs-and-classes-collection/blob/master/AHK_V2/scint5.ahk
+
 ; ====================================================================
 ; Scintilla Class
 ; ====================================================================

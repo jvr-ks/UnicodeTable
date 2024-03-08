@@ -54,4 +54,4 @@ Copyright (c) 2024 J. v. Roos
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709825324)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709919403)

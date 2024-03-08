@@ -394,9 +394,9 @@ isAnyControlCharacter(s){
     
   if (InStr(s, "NUL") || InStr(s, "HT") || InStr(s, "CR") ||
     InStr(s, "LF") || InStr(s, "OVF") || InStr(s, "END") ||
-    shortened = "" || SubStr(shortened,-1,1) = "9" || 
-    SubStr(shortened,-1,1) = "8" || SubStr(shortened,-1,1) = "9" || 
-    SubStr(shortened,-1,1) = "a" || SubStr(shortened,-1,1) = "d"  ){
+    shortened = "" || shortened = "9" || 
+    shortened = "8" || shortened = "9" || 
+    shortened = "a" || shortened = "d"  ){
       ret := 1
     }
     
