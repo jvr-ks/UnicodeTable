@@ -3,7 +3,6 @@
 * Use \[Ctrl] + \[Mouse-wheel] to zoom in/out,  
 * Use \[Alt] + \[Mouse-wheel] to select next/previous table-section (or use the ▼/▲-buttons),  
 * Mark a character (double-click) an press \[Ctrl] + [c] to show parameters (Parameter-Box),  
-* If UnicodeTable is running, any new characters captured to the clipboard are shown in the Parameter-Box,  
 * Press \[F1] again to close the QuickHelp-window. 
 
  
