@@ -13,6 +13,8 @@ Usable, but still under construction!
 * Use \[Ctrl] + \[Mouse-wheel] to zoom in/out,  
 * Use \[Alt] + \[Mouse-wheel] to select next/previous table-section (or use the ▼/▲-buttons),  
 * Mark a character (double-click) an press \[Ctrl] + [c] to show parameters (Parameter-Box),  
+* Enter values (hexadecimal, i.e. U+xy, xy < 0x01FFFF) (separated by blanks) in the "Num. to UTF-32 Char." field.  
+  Characters are display in the Character(s)-field of the Param-Box.  
 * Press \[F1] again to close the QuickHelp-window.  
 
 #### Blocks  
@@ -58,4 +60,4 @@ Copyright (c) 2024 J. v. Roos
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709921518)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709922609)
