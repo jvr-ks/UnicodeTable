@@ -530,7 +530,7 @@ class Scintilla extends Gui.Custom {
         this.Margin.ID := 1
         this.Margin.Sensitive := true
         
-        this.Tab.Use := true ; use spaces instad of tabs
+        this.Tab.Use := false ; use spaces instad of tabs
         this.Tab.Width := 5 ; number of spaces for a tab
         
         this.Selection.Multi := true ; allow multli-select, hold CTRL to add selection on left-click
@@ -544,8 +544,6 @@ class Scintilla extends Gui.Custom {
         
         this.cust.Editor.Back := 0x080808
         this.cust.Editor.Fore := 0xAAAAAA
-        this.cust.Editor.Font := "Consolas"
-        this.cust.Editor.Size := 10
         
         this.Style.ClearAll() ; apply style 32
         
@@ -577,10 +575,9 @@ class Scintilla extends Gui.Custom {
     LightTheme() {
         this.cust.Caret.LineBack := 0xF6F9FC  ; active line (with caret)
         this.cust.Editor.Back := 0xFDFDFD
-    
         this.cust.Editor.Fore := 0x000000
-        this.cust.Editor.Font := "Consolas"
-        this.cust.Editor.Size := 11
+        ;this.cust.Editor.Font := "Consolas"
+        ;this.cust.Editor.Size := 11
     
         this.Style.ClearAll() ; apply style 32
     

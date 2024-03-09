@@ -98,7 +98,7 @@ ctrlChr := "
 
 Unicode			Abbreviation			Description
 
-U+000000			NUL					Null character (Editor Control-character)
+U+000000			NUL				Null character (Editor Control-character)
 U+000001			SOH				Start of Heading
 U+000002			STX				Start of Text
 U+000003			ETX				End-of-text character
@@ -125,46 +125,46 @@ U+000017			ETB				End of Transmission Block
 U+000018			CAN	0			Cancel character
 U+000019			EM				End of Medium
 U+00001A			SUB	1			Substitute character
-U+00001B			ESC					Escape character
-U+00001C			FS					File Separator
-U+00001D			GS					Group Separator
-U+00001E			RS					Record Separator
-U+00001F			US					Unit Separator
-U+00007F			DEL					Delete
-U+000080			PAD					Padding Character
-U+000081			HOP					High Octet Preset
-U+000082			BPH					Break Permitted Here
-U+000083			NBH					No Break Here
-U+000084			IND					Index
-U+000085			NEL					Next Line
-U+000086			SSA					Start of Selected Area
-U+000087			ESA					End of Selected Area
-U+000088			HTS					Character Tabulation Set
-U+000089			HTJ					Character Tabulation with Justification
-U+00008A			VTS					Line Tabulation Set
-U+00008B			PLD					Partial Line Forward
-U+00008C			PLU					Partial Line Backward
-U+00008D			RI					Reverse Line Feed
-U+00008E			SS2					Single-Shift Two
-U+00008F			SS3					Single-Shift Three
-U+000090			DCS					Device Control String
-U+000091			PU1					Private Use 1
-U+000092			PU2					Private Use 2
-U+000093			STS					Set Transmit State
-U+000094			CCH					Cancel character
-U+000095			MW					Message Waiting
-U+000096			SPA					Start of Protected Area
-U+000097			EPA					End of Protected Area
-U+000098			SOS					Start of String
-U+000099			SGCI					Single Graphic Character Introducer
-U+00009A			SCI					Single Character Intro Introducer
-U+00009B			CSI					Control Sequence Introducer
-U+00009C			ST					String Terminator
-U+00009D			OSC					Operating System Command
-U+00009E			PM					Private Message
-U+00009F			APC					Application Program Command
-U+10FFFE			END					Last Character
-> U+10FFFE			OVF					Overflow (undefined)
+U+00001B			ESC				Escape character
+U+00001C			FS				File Separator
+U+00001D			GS				Group Separator
+U+00001E			RS				Record Separator
+U+00001F			US				Unit Separator
+U+00007F			DEL				Delete
+U+000080			PAD				Padding Character
+U+000081			HOP				High Octet Preset
+U+000082			BPH				Break Permitted Here
+U+000083			NBH				No Break Here
+U+000084			IND				Index
+U+000085			NEL				Next Line
+U+000086			SSA				Start of Selected Area
+U+000087			ESA				End of Selected Area
+U+000088			HTS				Character Tabulation Set
+U+000089			HTJ				Character Tabulation with Justification
+U+00008A			VTS				Line Tabulation Set
+U+00008B			PLD				Partial Line Forward
+U+00008C			PLU				Partial Line Backward
+U+00008D			RI				Reverse Line Feed
+U+00008E			SS2				Single-Shift Two
+U+00008F			SS3				Single-Shift Three
+U+000090			DCS				Device Control String
+U+000091			PU1				Private Use 1
+U+000092			PU2				Private Use 2
+U+000093			STS				Set Transmit State
+U+000094			CCH				Cancel character
+U+000095			MW				Message Waiting
+U+000096			SPA				Start of Protected Area
+U+000097			EPA				End of Protected Area
+U+000098			SOS				Start of String
+U+000099			SGCI				Single Graphic Character Introducer
+U+00009A			SCI				Single Character Intro Introducer
+U+00009B			CSI				Control Sequence Introducer
+U+00009C			ST				String Terminator
+U+00009D			OSC				Operating System Command
+U+00009E			PM				Private Message
+U+00009F			APC				Application Program Command
+U+10FFFE			END				Last Character
+> U+10FFFE		OVF				Overflow (undefined)
 
 )"
 

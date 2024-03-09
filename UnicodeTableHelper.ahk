@@ -11,7 +11,7 @@ readConfig(){
     fontName := iniReadSave("fontName", "config", "Segoe UI")
     fontSize := iniReadSave("fontSize", "config", 10)
     tableFontName := iniReadSave("tableFontName", "config", "Consolas")
-    tableFontSize := iniReadSave("tableFontSize", "config", 12)
+    tableFontSize := iniReadSave("tableFontSize", "config", 11)
     voiceEnabled := iniReadSave("voiceEnabled", "config", 0)
     
     mwheelModifier := iniReadSave("mwheelModifier", "config", mwheelModifierDefault)
@@ -83,7 +83,20 @@ iniReadSave(name, section, defaultValue){
     
   return retValue
 }
-
+;------------------------------- readFontsList -------------------------------
+readFontsList(){
+  global
+  
+  usableFonts := []
+  if (FileExist("UnicodeTableFonts.txt")){
+    favoritesRaw := FileRead("UnicodeTableFonts.txt")
+    Loop read, "UnicodeTableFonts.txt" {
+      if (!InStr(SubStr(A_LoopReadLine,1 , 2), ";"))
+        if (A_LoopReadLine != "")
+          usableFonts.push(A_LoopReadLine)
+    }
+  }
+}
 ;-------------------------------- editFavFile --------------------------------
 editFavFile(*){
   global

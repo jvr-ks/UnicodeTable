@@ -30,6 +30,14 @@ To use a row as a favorite, edit the file "UnicodeTableFavorites.txt":
 Copy the row to the top and remove the leading semicolon.  
   
 Favorites are accessible via Menu-buttons (Menu: Blocks ↣ Favorites).  
+
+#### Font  
+The font is currently fixed to "Consolas".  
+No single font includes all the characters defined in the Unicode standard.  
+(The Unicode standard itself is still evolving.)
+
+
+
   
 #### Known issues / bugs  
   
@@ -60,4 +68,4 @@ Copyright (c) 2024 J. v. Roos
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709922609)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709945416)

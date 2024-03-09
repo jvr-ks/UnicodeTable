@@ -71,7 +71,7 @@ inversInputRunning := 0
 fontName := "Segoe UI"
 fontSize := 11
 tableFontName := "Consolas"
-tableFontSize := 12
+tableFontSize := 11
 
 
 configFile := "UnicodeTable.ini"
@@ -123,6 +123,7 @@ hotkey(wUp, showUnicodeTableUp, "On")
 
 readConfig()
 readFavorites()
+readFontsList()
 mainGui()
 
 showUTF32Table(currentTableStartPosition)
@@ -209,7 +210,7 @@ mainGui(){
   guiMain := Gui("MaximizeBox +Resize ", appTitle)
  
   generateBlocksMenu()
-  generateFontsMenu()
+  generateTableFontsMenu()
   generateSettingsMenu()
   if (indexVisible)
     SettingsMenu.Check("Show index")
@@ -225,7 +226,7 @@ mainGui(){
   
   guiMainMenu.Add("Favorites", FavoritesMenu)
   guiMainMenu.Add("Blocks", BlocksMenu)
-  guiMainMenu.Add("Font", FontsMenu)
+  guiMainMenu.Add("TableFont", TableFontsMenu)
   guiMainMenu.Add("▼ Down", showUnicodeTableDown)
   guiMainMenu.Add("▲ Up", showUnicodeTableUp)
   guiMainMenu.Add("♒ ParamBox", showParamBox)
@@ -243,7 +244,9 @@ mainGui(){
   sciWidth := sciWidthDefault
   sciHeight := sciHeightDefault - paddingTopSci - paddingBottomSci
   
-  mainText := guiMain.AddScintilla("x" sciStartX " y" sciStarty " w" sciWidth " h" sciHeight "  DefaultOpt")
+  ;mainText := guiMain.AddScintilla("x" sciStartX " y" sciStarty " w" sciWidth " h" sciHeight "  DefaultOpt")
+  mainText := guiMain.AddScintilla("x" sciStartX " y" sciStarty " w" sciWidth " h" sciHeight "DefaultOpt  LightTheme")
+  
   setLighTheme(mainText)
   ;setlexer(mainText)
   
@@ -498,10 +501,11 @@ selectFont(f, *){
   global
   
   tableFontName := f
+
   mainText.cust.Editor.Font := tableFontName
+  ; mainText.cust.Editor.Size := tableFontSize
+  
   IniWrite tableFontName, configFile, "config", "tableFontName"
-  sleep 500
-  reload()
 }
 ;-------------------------------- sci_Change --------------------------------
 sci_Change(*){
@@ -525,8 +529,8 @@ setLighTheme(ctl) {
   ctl.cust.Editor.Back := 0xFDFDFD
 
   ctl.cust.Editor.Fore := 0x000000
-  ctl.cust.Editor.Font := "Consolas"
-  ctl.cust.Editor.Size := 12
+  ;ctl.cust.Editor.Font := "Consolas"
+  ctl.cust.Editor.Size := 11
 
   ctl.Style.ClearAll()	; apply style 32
 

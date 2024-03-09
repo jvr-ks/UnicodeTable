@@ -1,12 +1,15 @@
 ﻿; UnicodeTableFonts.ahk
 ; Part of unicodeTable.ahk
 
-;----------------------------- generateFontsMenu -----------------------------
-generateFontsMenu(){
+;----------------------------- generateTableFontsMenu -----------------------------
+generateTableFontsMenu(){
   global
   
-  FontsMenu := Menu()
-  FontsMenu.Add("Consolas", selectFont.Bind("Consolas"))
+  TableFontsMenu := Menu()
+  
+  for k, v in usableFonts {
+    TableFontsMenu.Add(v, selectFont.Bind(v))
+  }
 }
 
 

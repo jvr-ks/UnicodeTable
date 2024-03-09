@@ -30,6 +30,14 @@ To use a row as a favorite, edit the file "UnicodeTableFavorites.txt":
 Copy the row to the top and remove the leading semicolon.  
   
 Favorites are accessible via Menu-buttons (Menu: Blocks ↣ Favorites).  
+
+#### Font  
+The font is currently fixed to "Consolas".  
+No single font includes all the characters defined in the Unicode standard.  
+(The Unicode standard itself is still evolving.)
+
+
+
   
 #### Known issues / bugs  
   
