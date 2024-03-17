@@ -63,6 +63,7 @@ appVersion := "0.008"
 
 appTitle := appName " " "v" appVersion
 
+catchAll := 0
 voiceEnabled := 0
 voiceIsSpeed := 1 ; -10 .. +10
 autoOpenParamBox := 1
@@ -142,7 +143,7 @@ OnClipboardChangeFunction(type){
   
   MouseGetPos ,,, &OutputVarControl
   
-  if (InStr(OutputVarControl,"Scintilla1")|| inversInputRunning){
+  if (InStr(OutputVarControl,"Scintilla1") || inversInputRunning || catchAll){
     if (type == 1){
       characters := A_Clipboard
       clipWait 5, 0
@@ -220,13 +221,16 @@ mainGui(){
     
   if (autoOpenParamBox)
     SettingsMenu.Check("Auto Open ParamBox")
+    
+  if (catchAll)
+    SettingsMenu.Check("Catch characters outside the app")
 
   guiMainMenu := MenuBar()
   guiMainMenu.Add("" " Startvalue", selectStartValue)
   
   guiMainMenu.Add("Favorites", FavoritesMenu)
   guiMainMenu.Add("Blocks", BlocksMenu)
-  guiMainMenu.Add("TableFont", TableFontsMenu)
+  ; guiMainMenu.Add("TableFont", TableFontsMenu)
   guiMainMenu.Add("▼ Down", showUnicodeTableDown)
   guiMainMenu.Add("▲ Up", showUnicodeTableUp)
   guiMainMenu.Add("♒ ParamBox", showParamBox)

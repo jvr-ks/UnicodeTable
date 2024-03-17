@@ -13,6 +13,8 @@ readConfig(){
     tableFontName := iniReadSave("tableFontName", "config", "Consolas")
     tableFontSize := iniReadSave("tableFontSize", "config", 11)
     voiceEnabled := iniReadSave("voiceEnabled", "config", 0)
+    catchAll := iniReadSave("catchAll", "config", 0)
+    
     
     mwheelModifier := iniReadSave("mwheelModifier", "config", mwheelModifierDefault)
     currentTableStartPosition := iniReadSave("currentTableStartPosition", "config", currentTableStartPositionDefault)

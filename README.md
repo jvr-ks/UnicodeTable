@@ -1,6 +1,6 @@
 # UnicodeTable  
   
-### Status: Alpha
+### Status: Betatest
   
 UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
   
@@ -13,6 +13,7 @@ Usable, but still under construction!
 * Use \[Ctrl] + \[Mouse-wheel] to zoom in/out,  
 * Use \[Alt] + \[Mouse-wheel] to select next/previous table-section (or use the ▼/▲-buttons),  
 * Mark a character (double-click) an press \[Ctrl] + [c] to show parameters (Parameter-Box),  
+  (Only in the table, besides the switch Menu -&gt; Settings -&gt; "Catch characters outside the app" is checked)   
 * Enter values (hexadecimal, i.e. U+xy, xy < 0x01FFFF) (separated by blanks) in the "Num. to UTF-32 Char." field.  
   Characters are display in the Character(s)-field of the Param-Box.  
 * Press \[F1] again to close the QuickHelp-window.  
@@ -36,8 +37,6 @@ The font is currently fixed to "Consolas".
 No single font includes all the characters defined in the Unicode standard.  
 (The Unicode standard itself is still evolving.)
 
-
-
   
 #### Known issues / bugs  
   
@@ -49,12 +48,12 @@ Issue / Bug | Type | fixed in version
   
 Version (&gt;=)| Change  
 ------------ | -------------  
+0.009 | Settings -&gt; Switch "Catch characters outside the app"
 0.006 | Favorites (Menu ↣ Favorites)
 0.005 | Blocks
 0.003 | Parameter-Box
   
 #### Download Zip-file  
-Google: [UnicodeTable.zip](https://drive.google.com/file/d/1GhZwM6_bvhcyBU6_BMh0_HyTIrncAsIo/view?usp=sharing)  
 Github: [UnicodeTable.zip](https://github.com/jvr-ks/UnicodeTable/raw/main/UnicodeTable.zip)  
 The zip-files don't contain any source-code!  
   
@@ -68,4 +67,4 @@ Copyright (c) 2024 J. v. Roos
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1709945416)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1710718194)

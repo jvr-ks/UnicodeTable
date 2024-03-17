@@ -8,6 +8,7 @@ generateSettingsMenu(){
   
   SettingsMenu := Menu()
   SettingsMenu.Add("Show index", toggleIndexVisibility)
+  SettingsMenu.Add("Catch characters outside the app", toggleCatchAll)
   SettingsMenu.Add("Enable voice", toggleVoiceEnabled)
   SettingsMenu.Add("Auto Open ParamBox", toggleAutoOpenParamBox)
   SettingsMenu.Add("Edit Favorites File", editFavFile)
@@ -36,6 +37,14 @@ toggleAutoOpenParamBox(*){
   autoOpenParamBox := !autoOpenParamBox
   SettingsMenu.ToggleCheck("Auto Open ParamBox")
   IniWrite autoOpenParamBox, configFile, "config", "autoOpenParamBox"
+}
+;------------------------------ toggleCatchAll ------------------------------
+toggleCatchAll(*){
+  global
+
+  catchAll := !catchAll
+  SettingsMenu.ToggleCheck("Catch characters outside the app")
+  IniWrite catchAll, configFile, "config", "catchAll"
 }
 ;---------------------------- generateBlocksMenu ----------------------------
 generateBlocksMenu(){
