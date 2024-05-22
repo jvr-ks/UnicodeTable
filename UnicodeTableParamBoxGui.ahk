@@ -77,7 +77,7 @@ showCharName(*){
         charInfo := lastChar " (" charName " )"
       } else {
         charName := getCharNameFromWeb(value4)
-        charInfo := lastChar " (" charName " )"
+        charInfo := lastChar " (" charName ")"
         unicodeNameMap.Set(value6, charName)
         unicodeNameMapSave()
       }
