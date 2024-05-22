@@ -34,5 +34,6 @@
 00270D|Writing Hand
 00270E|Lower Right Pencil
 00270F|Pencil
+002733|Eight Spoked Asterisk
 0027F7|Long Left Right Arrow
 0027F8|Long Leftwards Double Arrow
