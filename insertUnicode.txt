@@ -9,6 +9,7 @@
 •|Bullet
 …|Ellipsis
 ∞|Infinity
+⏎|Return Symbol
 ▶|Black Right-Pointing Triangle
 ◀|Black Left-Pointing Triangle
 ◊|Diamond / Lozenge
@@ -25,4 +26,3 @@
 ❤|Heart
 ➝|Triangle-Headed Rightwards Arrow
 ⟹|Long Rightwards Double Arrow
-⮠|Downwards Triangle-Headed Arrow with Long Tip Leftwards

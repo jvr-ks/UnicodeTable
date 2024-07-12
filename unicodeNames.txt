@@ -18,6 +18,7 @@
 000011|Dc1
 000104|Latin Capital Letter A with Ogonek
 000185|Latin Small Letter Tone Six
+0023CE|Return Symbol
 002700|Black Safety Scissors
 002701|Upper Blade Scissors
 002702|Black Scissors
