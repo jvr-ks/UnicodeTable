@@ -173,7 +173,7 @@ exportInsertable(){
     
   for key, value in InsertableValues {
     toAppend := key "|" value "`n"
-    FileAppend toAppend, file
+    FileAppend toAppend, file, "`n"
   }
 }
 ;----------------------------- readInsertableRaw -----------------------------
