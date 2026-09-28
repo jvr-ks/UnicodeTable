@@ -1,0 +1,36 @@
+﻿¢|Cent Sign
+©|copyright
+«|Left pointing double angle quotation mark
+®|Registered Sign / Racol
+»|Right pointing double angle quotation mark
+Å|Angstrom
+–|EN Dash
+—|EM Dash
+’|Right Single Quotation Mark
+”|Right Double Quotation Mark
+„|Double Low-9 Quotation Mark
+•|Bullet
+…|Ellipsis
+←|Leftwards Arrow
+⇒|Rightwards Double Arrow
+∑|N-Ary Summation
+√|Square Root
+∞|Infinity
+⏎|Return Symbol
+▶|Black Right-Pointing Triangle
+◀|Black Left-Pointing Triangle
+◊|Diamond / Lozenge
+◯|Large Circle / IsNotOk -> Button
+☺|Smiley
+♀|Female Sign
+♂|Male Sign
+♧|White Club Suit
+✎|Lower Right Pencil
+✏|Pencil
+✓|Check Mark
+✔|Checkmark / IsOk -> Button
+✹|Twelve Pointed Black Star
+❌|Cross Mark
+❤|Heart
+➝|Triangle-Headed Rightwards Arrow
+⟹|Long Rightwards Double Arrow

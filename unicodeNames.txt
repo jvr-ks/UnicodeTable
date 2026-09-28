@@ -1,0 +1,54 @@
+﻿0000|NUL
+000000|NUL
+000001|Soh
+000002|Start of Text
+000003|End of Text
+000004|End of Transmission
+000005|Enq
+000006|Ack
+000007|Alert
+000008|Backspace
+000009|HT
+00000A|VT
+00000B|FF
+00000C|FF
+00000D|CR
+00000E|SO
+00000F|SI
+000011|Dc1
+000022|Quotation Mark
+000104|Latin Capital Letter A with Ogonek
+000185|Latin Small Letter Tone Six
+002018|Left Single Quotation Mark
+002019|Right Single Quotation Mark
+00201C|Left Double Quotation Mark
+00201D|Right Double Quotation Mark
+00201E|Double Low-9 Quotation Mark
+00201F|Double High-Reversed-9 Quotation Mark
+002190|Leftwards Arrow
+0021B5|Downwards Arrow with Corner Leftwards
+0021D2|Rightwards Double Arrow
+002211|N-Ary Summation
+00221A|Square Root
+0023CE|Return Symbol
+002700|Black Safety Scissors
+002701|Upper Blade Scissors
+002702|Black Scissors
+002703|Lower Blade Scissors
+002704|White Scissors
+002705|White Heavy Check Mark
+002706|Telephone Location Sign
+002707|Tape Drive
+002708|Airplane
+002709|Envelope
+00270A|Raised Fist
+00270B|Raised Hand
+00270C|Victory Hand
+00270D|Writing Hand
+00270E|Lower Right Pencil
+00270F|Pencil
+002713|Check Mark
+002733|Eight Spoked Asterisk
+0027F7|Long Left Right Arrow
+0027F8|Long Leftwards Double Arrow
+002BA0|Downwards Triangle-Headed Arrow with Long Tip Leftwards
