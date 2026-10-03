@@ -1,8 +1,9 @@
 # UnicodeTable  
   
-### Status: Betatest
-(Usable, but still under construction!)  
-  
+### Status: Betatest  
+The Sourecode was designed to be used with an AHK2 Alpha version.  
+Currently not compatible with new AHK 2!
+
 UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
   
 Doubleclick on any character to get more information (UTF-16 and UTF8 values, name of first character etc.).  

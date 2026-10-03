@@ -1,8 +1,9 @@
 # UnicodeTable  
   
-### Status: Betatest
-(Usable, but still under construction!)  
-  
+### Status: Betatest  
+The Sourecode was designed to be used with an AHK2 Alpha version.  
+Currently not compatible with new AHK 2!
+
 UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
   
 Doubleclick on any character to get more information (UTF-16 and UTF8 values, name of first character etc.).  
@@ -109,4 +110,4 @@ OR PERFORMANCE OF THIS SOFTWARE.
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1790600522)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1791062481)
