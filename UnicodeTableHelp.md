@@ -1,9 +1,6 @@
 # UnicodeTable  
   
 ### Status: Betatest  
-The Sourecode was designed to be used with an AHK2 Alpha version.  
-Currently not compatible with new AHK 2!
-
 UnicodeTable shows a table of Unicode characters (compare: "charmap.exe" a standard Windows app).  
   
 Doubleclick on any character to get more information (UTF-16 and UTF8 values, name of first character etc.).  
@@ -61,12 +58,13 @@ The ParamBox Character(s) field does not support all characters supported by the
   
 Issue / Bug | Type | fixed in version  
 ------------ | ------------- | -------------  
- 
+ Not AHK 2.x compatible | Issue | 0.019 ✔
   
 #### Latest changes:  
   
 Version (&gt;=)| Change  
 ------------ | -------------  
+0.019 | Source Code AHK 2.x compatible now
 0.016 | Fontsize menu added, Font name/size selection moved to the Settings menu
 0.015 | ParamBox menu button to show the name of the first character (Range: < U+FFF0)
 0.011 | Bugfixes

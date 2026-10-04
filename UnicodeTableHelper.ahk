@@ -21,7 +21,7 @@ readConfig(){
     currentTableStartPosition := iniReadSave("currentTableStartPosition", "config", currentTableStartPositionDefault)
     
     indexVisible := iniReadSave("indexVisible", "gui", 1)
-    dpiScaleValue := iniReadSave("dpiScaleValue", "gui", dpiScaleValueDefault)
+    ;changed dpiScaleValue := iniReadSave("dpiScaleValue", "gui", dpiScaleValueDefault)
     paramBoxRows := iniReadSave("paramBoxRows", "gui", paramBoxRowsDefault)
     
     voiceEnabled := iniReadSave("voiceEnabled", "config", 0)
@@ -56,7 +56,7 @@ guiMainFontName=Segoe UI
 guiMainFontSize=10
 voiceEnabled=1
 [gui]
-dpiScaleValue=96
+;changed dpiScaleValue=96
 paramBoxRows=4
 guiMainPosX=0
 guiMainPosY=0
@@ -70,7 +70,7 @@ guiParamBoxClientHeight=600
   
   }
   
-  dpiCorrect := A_ScreenDPI / dpiScaleValue
+  ;changed dpiCorrect := A_ScreenDPI / dpiScaleValue
   
   guiMainPosX := max(guiMainPosX, minPosLeft)
   guiMainPosY := max(guiMainPosY, minPosTop)
@@ -130,22 +130,25 @@ refresh(*){
   Reload
 }
 ;----------------------------- coordsScreenToApp -----------------------------
-coordsScreenToApp(n){
-  global dpiCorrect
+coordsScreenToApp_remove(n){
+  ;changed global dpiCorrect
+  global
   local retValue
   
   retValue := 0
-  if (dpiCorrect > 0)
-    retValue := round(n / dpiCorrect)
+  ;changed if (dpiCorrect > 0)
+  ;changed   retValue := round(n / dpiCorrect)
 
   return retValue
 }
 ;----------------------------- coordsAppToScreen -----------------------------
-coordsAppToScreen(n){
-  global dpiCorrect
+coordsAppToScreen_remove(n){
+  global
+  ;changed global dpiCorrect
   local retValue
 
-  retValue := round(n * dpiCorrect)
+  retValue := 0
+  ;changed retValue := round(n * dpiCorrect)
 
   return retValue
 }

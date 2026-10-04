@@ -63,7 +63,7 @@ baseDirectory := A_ScriptDir
 appName := "UnicodeTable"
 appnameLower := "UnicodeTable"
 extension := ".exe"
-appVersion := "0.018"
+appVersion := "0.019"
 
 appTitle := appName " " "v" appVersion
 
@@ -90,8 +90,8 @@ currentTableStartPosition := currentTableStartPositionDefault
 ;------------------------------- gui variables -------------------------------
 buttonWidth := 128
 
-dpiScaleValueDefault := 96
-dpiScaleValue := dpiScaleValueDefault
+;changed dpiScaleValueDefault := 96
+;changed dpiScaleValue := dpiScaleValueDefault
 
 guiMainPosXDefault := 0 
 guiMainPosYDefault := 0
