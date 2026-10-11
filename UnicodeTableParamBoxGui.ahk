@@ -69,20 +69,24 @@ showCharName(*){
   charInfo := ""
   lastChar := SubStr(guiParamBoxRow1.value, 1, 1)
   if (lastChar != ""){
-    if (isNumber("0x" guiParamBoxRow3.Value)){
-      value4 := format("{1:4.4X}", "0x" guiParamBoxRow3.Value)
-      value6 := format("{1:6.6X}", "0x" guiParamBoxRow3.Value)
-      if (unicodeNameMap.has(value6)){
-        charName := unicodeNameMap.get(value6)
+    utf32String := guiParamBoxRow2.Value
+    utf32Hex := Format("0x{:X}", "0x" . utf32String)
+    if (isNumber(utf32Hex)){
+      if (unicodeNameMap.has(utf32String)){
+        charName := unicodeNameMap.get(utf32String)
         charInfo := lastChar " (" charName " )"
       } else {
-        charName := getCharNameFromWeb(value4)
+        charName := getCharNameFromWeb(utf32String)
         charInfo := lastChar " (" charName ")"
-        unicodeNameMap.Set(value6, charName)
+        unicodeNameMap.Set(utf32String, charName)
         unicodeNameMapSave()
       }
       showHintColored(charInfo, 5000)
+    } else {
+      msgbox("Input guiParamBoxRow2 is not a valid number: " . utf32Hex)
     }
+  } else {
+    msgbox("Input guiParamBoxRow1 is empty!")
   }
 }
 ;-------------------------- saveToInsertUnicodeFile --------------------------
@@ -99,20 +103,16 @@ saveToInsertUnicodeFile(*){
   
   lastChar  := SubStr(guiParamBoxRow1.value, 1, 1)
   
-  if (isNumber("0x" guiParamBoxRow3.Value)){
-    value4 := format("{1:4.4X}", "0x" guiParamBoxRow3.Value)
-    value6 := format("{1:6.6X}", "0x" guiParamBoxRow3.Value)
+  utf32String := guiParamBoxRow2.Value
     
-    if (unicodeNameMap.has(value6)){
-      charName := unicodeNameMap.get(value6)
-    } else {
-      charName := getCharNameFromWeb(value4)
-      unicodeNameMap.Set(value6, charName)
-      unicodeNameMapSave()
-    }
+  if (unicodeNameMap.has(utf32String)){
+    charName := unicodeNameMap.get(utf32String)
   } else {
-    return
+    charName := getCharNameFromWeb(utf32String)
+    unicodeNameMap.Set(utf32String, charName)
+    unicodeNameMapSave()
   }
+
   InBox := InputBox("Character is : " lastChar ", please verify the character name!", "Unicode character export to the file `"insertUnicode.txt`" ", "w400 h100", charName)
   if (InBox.Result = "ok"){
     InsertableValues.Set(lastChar, InBox.value)
@@ -126,15 +126,16 @@ saveToInsertUnicodeFile(*){
   OnClipboardChange(OnClipboardChangeFunction, 1)
 }
 ;---------------------------- getCharNameFromWeb ----------------------------
-getCharNameFromWeb(unicode4){
+getCharNameFromWeb(utfString){
 ; https://www.autohotkey.com/boards/viewtopic.php?t=80466
   global
   local ret
   
   ret := "unknown"
-  
-  if (IsNumber){
-    url := "https://www.compart.com/de/unicode/U+" unicode4
+
+  if (utfString != ""){
+    utfString := RegExReplace(utfString, "^0+", "")
+    url := "https://www.compart.com/de/unicode/U+" . utfString
 
     oHTTP := ComObject("MSXML2.XMLHTTP.6.0")
 
@@ -157,7 +158,7 @@ getCharNameFromWeb(unicode4){
       ret := oDocument.getElementsByTagName("td").item(3).firstChild.data
     }
   } else {
-    showHintColored("ERROR: Invalid unicodenumber: " unicode4)
+      msgbox("getCharNameFromWeb got an empty parameter!")
   }
 
   return ret
@@ -305,18 +306,16 @@ inversInput(*){
     }
   }
 }
-;------------------------------- showParamBox -------------------------------
-showParamBox(*){
-    guiParamBox.Show()
-}
 ;------------------------------ toggleParamBox ------------------------------
 toggleParamBox(*){
   global
   
-  if (!WinExist("ParamBox")){
-    guiParamBox.Show()
+  if (!paramBoxVisible){
+    guiParamBox.Show("Restore")
+    paramBoxVisible := 1
   } else {
     guiParamBox.Hide()
+    paramBoxVisible := 0
   }
 }
 ;----------------------------- guiParamBox_Size -----------------------------

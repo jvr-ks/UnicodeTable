@@ -64,15 +64,16 @@ Issue / Bug | Type | fixed in version
   
 Version (&gt;=)| Change  
 ------------ | -------------  
-0.019 | Source Code AHK 2.x compatible now
-0.016 | Fontsize menu added, Font name/size selection moved to the Settings menu
-0.015 | ParamBox menu button to show the name of the first character (Range: < U+FFF0)
-0.011 | Bugfixes
+0.020 | Bug concerning larger UTF characters fixed  
+0.019 | Source Code AHK 2.x compatible now  
+0.016 | Fontsize menu added, Font name/size selection moved to the Settings menu  
+0.015 | ParamBox menu button to show the name of the first character (Range: < U+FFF0)   
+0.011 | Bugfixes  
 0.010 | Table font is selectable  
-0.009 | Settings -&gt; Switch "Catch characters outside the app"
-0.006 | Favorites (Menu ↣ Favorites)
-0.005 | Blocks
-0.003 | Parameter-Box
+0.009 | Settings -&gt; Switch "Catch characters outside the app"  
+0.006 | Favorites (Menu ↣ Favorites)  
+0.005 | Blocks  
+0.003 | Parameter-Box  
   
 #### Download Zip-file  
 Github: [UnicodeTable.zip](https://github.com/jvr-ks/UnicodeTable/raw/main/UnicodeTable.zip)  
@@ -108,4 +109,4 @@ OR PERFORMANCE OF THIS SOFTWARE.
 <a name="virusscan">  
 
 ##### Virusscan at Virustotal 
-[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1791108640)
+[UnicodeTable.exe 64bit-exe](https://www.virustotal.com/gui/url/991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e/detection/u-991fc18082b9d0fa55a80ff69d77bcbb3cc59738a3120a7698d1bed6246efb6e-1791709389)

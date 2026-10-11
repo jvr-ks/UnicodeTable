@@ -3,7 +3,6 @@
 «|Left pointing double angle quotation mark
 ®|Registered Sign / Racol
 »|Right pointing double angle quotation mark
-Å|Angstrom
 –|EN Dash
 —|EM Dash
 ’|Right Single Quotation Mark
@@ -34,3 +33,4 @@
 ❤|Heart
 ➝|Triangle-Headed Rightwards Arrow
 ⟹|Long Rightwards Double Arrow
+�|Eyes

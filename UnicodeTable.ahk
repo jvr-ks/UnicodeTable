@@ -20,7 +20,7 @@
   *********************************************************************************
 */
 
-#Requires AutoHotkey v2
+#Requires AutoHotkey >=2.0
 
 #Warn
 #SingleInstance force
@@ -40,7 +40,7 @@ Fileencoding "UTF-8"
 
 
 
-SetTitleMatchMode "2"
+SetTitleMatchMode(2)
 DetectHiddenWindows false
 SendMode "Input" 
 
@@ -63,7 +63,7 @@ baseDirectory := A_ScriptDir
 appName := "UnicodeTable"
 appnameLower := "UnicodeTable"
 extension := ".exe"
-appVersion := "0.019"
+appVersion := "0.020"
 
 appTitle := appName " " "v" appVersion
 
@@ -110,6 +110,7 @@ guiParamBoxPosX := 0
 guiParamBoxPosY := 0
 guiParamBoxClientWidth := 0
 guiParamBoxClientHeight := 0
+paramBoxVisible := 0
 
 ; limits
 minPosTop := -20
@@ -184,13 +185,15 @@ OnClipboardChangeFunction(type){
       characters := A_Clipboard
       clipWait 5, 0
       
-      if (autoOpenParamBox)
-        showParamBox()
+      if (autoOpenParamBox){
+        guiParamBox.show()
+        paramBoxVisible := 0
+      }
       
       characters := StrReplace(characters, "`t", " ")
       guiParamBoxRow1.Value := characters
       
-      arrayUTF32:= stringUTF16ToUTF32(characters)
+      arrayUTF32 := stringUTF16ToUTF32(characters)
       stringUTF32 := ""
       stringUTF8 := ""
       loop arrayUTF32.Length {

@@ -52,3 +52,4 @@
 0027F7|Long Left Right Arrow
 0027F8|Long Leftwards Double Arrow
 002BA0|Downwards Triangle-Headed Arrow with Long Tip Leftwards
+01F440|Eyes
